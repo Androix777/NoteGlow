@@ -1,20 +1,21 @@
-console.log("content.js loaded");
 var isActive = false;
 
 var settingsJSON;
-var searchObjects;
 
 var showActions = {
     "background": (element) => 
     {
-        element.style.backgroundColor = searchObjects[element.getAttribute("data-search-object-id")].color
-            + Math.round(settingsJSON.opacity * 255).toString(16).padStart(2, '0').toUpperCase();
+
+        //element.style.backgroundColor = obsidianData[element.getAttribute("data-search-object-id")].color
+        //   + Math.round(settingsJSON.opacity * 255).toString(16).padStart(2, '0').toUpperCase();
+        element.style.backgroundColor = "#FF0000";
     },
     "underline": (element) => 
     {
         element.style.textDecoration = "underline";
-        element.style.textDecorationColor = searchObjects[element.getAttribute("data-search-object-id")].color;
-        element.style.textDecorationThickness = settingsJSON.lineWidth + 'px';
+        //element.style.textDecorationColor = obsidianData[element.getAttribute("data-search-object-id")].color;
+        element.style.textDecorationColor = "#FF0000";
+        element.style.textDecorationThickness = settingsJSON.lineWidth + "px";
     }
 }
 
@@ -29,8 +30,6 @@ var hideActions = {
     }
 }
 
-loadSettings();
-
 document.onkeydown = (event) =>
 {
     if (event.repeat) return;
@@ -40,14 +39,14 @@ document.onkeydown = (event) =>
     }
 };
 
-setTimeout(highlightAll, 500);
 
-function loadSettings()
+async function loadSettings()
 {
-    chrome.storage.local.get(["settingsJSON"]).then((result) =>
+    await chrome.storage.local.get(["settingsJSON"]).then(async (result) =>
     {
         settingsJSON = result.settingsJSON;
-        searchObjects = settingsJSON.searchObjectGroups[settingsJSON.currentObjectGroup].objects;
+        //searchObjects = settingsJSON.searchObjectGroups[settingsJSON.currentObjectGroup].objects;
+        await refreshObsidianData();
     });
 }
 
@@ -131,7 +130,7 @@ function highlightNode(node, nodeDataArray)
             document.body.appendChild(tooltip);
 
             tooltip.textContent =
-                searchObjects[nodeData.searchObjectID].description;
+                obsidianData[nodeData.searchObjectID].description;
             tooltip.className = "searchObjectTooltip";
 
             let rect = event.target.getBoundingClientRect();
@@ -167,11 +166,12 @@ function switchActive()
     }
 }
 
-function highlightAll()
+async function highlightAll()
 {
     removeSearchObjects();
-    loadSettings();
-    highlightSubstringNodes(search(document, searchObjects.map((searchObject) => searchObject.aliases)));
+    await loadSettings();
+    console.log(settingsJSON);
+    highlightSubstringNodes(search(document, obsidianData.map((searchObject) => searchObject.aliases)));
     isActive = false;
     showAll();
 }

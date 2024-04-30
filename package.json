@@ -1,20 +1,19 @@
 {
-  "name": "highlighter",
+  "name": "NoteGlow",
   "version": "0.0.1",
-  "description": "highlighter",
+  "description": "NoteGlow",
   "main": "options.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Airpllane/highlighter.git"
+    "url": "git+https://github.com/Androix777/NoteGlow.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Airpllane/highlighter/issues"
+    "url": "https://github.com/Androix777/NoteGlow/issues"
   },
-  "homepage": "https://github.com/Airpllane/highlighter#readme",
+  "homepage": "https://github.com/Androix777/NoteGlow#readme",
   "dependencies": {
-    "@shoelace-style/shoelace": "^2.11.2",
-    "tabulator-tables": "^5.5.2"
+    "@shoelace-style/shoelace": "^2.11.2"
   }
 }
