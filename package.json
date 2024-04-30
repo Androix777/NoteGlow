@@ -1,0 +1,20 @@
+{
+  "name": "highlighter",
+  "version": "0.0.1",
+  "description": "highlighter",
+  "main": "options.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Airpllane/highlighter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Airpllane/highlighter/issues"
+  },
+  "homepage": "https://github.com/Airpllane/highlighter#readme",
+  "dependencies": {
+    "@shoelace-style/shoelace": "^2.11.2",
+    "tabulator-tables": "^5.5.2"
+  }
+}

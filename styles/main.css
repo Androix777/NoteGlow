@@ -1,0 +1,68 @@
+.searchObjectTooltip 
+{
+    position: absolute;
+    padding: 10px;
+    display: block;
+    border: 1px dotted black;
+    background-color: #2e2e2e;
+    color: aliceblue;
+    font-family: var(--sl-font-sans);
+    font-size: large;
+}
+
+.highlighter-container
+{
+    margin: 15px;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    flex-flow: row;
+    overflow: auto;
+}
+
+.highlighter-table-container
+{
+    width: 750px;
+    margin-right: 10px;
+    display: flex;
+    flex-flow: column;
+}
+
+.highlighter-options-container
+{
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+}
+
+.highlighter-options-select
+{
+    width: fit-content;
+}
+
+.highlighter-options-input
+{
+    width: fit-content;
+}
+
+.highlighter-search-objects-table
+{
+    width: 750px;
+    flex: 90%;
+}
+
+.highlighter-title
+{
+    font-size: large;
+    font-weight: bold;
+    margin: auto;
+    flex: 5%;
+}
+
+@media screen and (max-width: 1500px)
+{
+    .highlighter-container {flex-flow: column;}
+    .highlighter-table-container {width: 100%;}
+    .highlighter-search-objects-table {width: 100%;}
+}
